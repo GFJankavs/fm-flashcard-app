@@ -1,0 +1,95 @@
+@import "tailwindcss";
+@import "./fonts.css";
+
+:root {
+  /* Colors */
+  --neutral-900: #2e1401;
+  --neutral-600: #6d5b4d;
+  --neutral-100: #f7f3f0;
+  --neutral-0: #ffffff;
+  --yellow-500: #f8cb46;
+  --blue-400: #92adeb;
+  --blue-600: #5072c7;
+  --teal-400: #47d9c9;
+  --pink-400: #fc8ae5;
+  --pink-500: #f073a3;
+  --pink-700: #e11966;
+
+  /* Spacing */
+  --spacing-0: 0px;
+  --spacing-25: 2px;
+  --spacing-50: 4px;
+  --spacing-75: 6px;
+  --spacing-100: 8px;
+  --spacing-125: 10px;
+  --spacing-150: 12px;
+  --spacing-200: 16px;
+  --spacing-250: 20px;
+  --spacing-300: 24px;
+  --spacing-400: 32px;
+  --spacing-500: 40px;
+  --spacing-600: 48px;
+  --spacing-800: 64px;
+  --spacing-1000: 80px;
+  --spacing-1200: 96px;
+  --spacing-1400: 112px;
+  --spacing-1600: 128px;
+  --spacing-1800: 140px;
+
+  /* Radius */
+  --radius-0: 0px;
+  --radius-4: 4px;
+  --radius-6: 6px;
+  --radius-8: 8px;
+  --radius-10: 10px;
+  --radius-12: 12px;
+  --radius-16: 16px;
+  --radius-20: 20px;
+  --radius-24: 24px;
+  --radius-full: 9999px;
+}
+
+@theme {
+  --color-neutral-9: var(--neutral-900);
+  --color-neutral-6: var(--neutral-600);
+  --color-neutral-1: var(--neutral-100);
+  --color-neutral-0: var(--neutral-0);
+  --color-yellow-5: var(--yellow-500);
+  --color-blue-4: var(--blue-400);
+  --color-blue-6: var(--blue-600);
+  --color-teal-4: var(--teal-400);
+  --color-pink-4: var(--pink-400);
+  --color-pink-5: var(--pink-500);
+  --color-pink-7: var(--pink-700);
+
+  --spacing-0: var(--spacing-0);
+  --spacing-25: var(--spacing-25);
+  --spacing-50: var(--spacing-50);
+  --spacing-75: var(--spacing-75);
+  --spacing-100: var(--spacing-100);
+  --spacing-125: var(--spacing-125);
+  --spacing-150: var(--spacing-150);
+  --spacing-200: var(--spacing-200);
+  --spacing-250: var(--spacing-250);
+  --spacing-300: var(--spacing-300);
+  --spacing-400: var(--spacing-400);
+  --spacing-500: var(--spacing-500);
+  --spacing-600: var(--spacing-600);
+  --spacing-800: var(--spacing-800);
+  --spacing-1000: var(--spacing-1000);
+  --spacing-1200: var(--spacing-1200);
+  --spacing-1400: var(--spacing-1400);
+  --spacing-1600: var(--spacing-1600);
+  --spacing-1800: var(--spacing-1800);
+
+  --radius-0: var(--radius-0);
+  --radius-4: var(--radius-4);
+  --radius-6: var(--radius-6);
+  --radius-8: var(--radius-8);
+  --radius-10: var(--radius-10);
+  --radius-12: var(--radius-12);
+  --radius-16: var(--radius-16);
+  --radius-20: var(--radius-20);
+  --radius-24: var(--radius-24);
+  --radius-full: var(--radius-full);
+}
