@@ -3,7 +3,9 @@ import Button from "@/app/components/Button";
 const DeleteModal = ({
     isOpen,
     onModalClose,
+    onCardDelete,
 }: {
+    onCardDelete: () => void;
     isOpen: boolean;
     onModalClose: () => void;
 }) => {
@@ -22,7 +24,9 @@ const DeleteModal = ({
                     <Button variant="border" onClick={onModalClose}>
                         Cancel
                     </Button>
-                    <Button variant="primary">Delete Card</Button>
+                    <Button variant="primary" onClick={onCardDelete}>
+                        Delete Card
+                    </Button>
                 </div>
             </div>
         </div>

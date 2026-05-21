@@ -2,8 +2,19 @@ import { useEffect, useRef, useState } from "react";
 import Button from "./Button";
 import DropdownItem from "./DropdownItem";
 import AngleDownIcon from "./icons/AngleDownIcon";
+import { CategoryDropdownOption } from "../types";
 
-const Dropdown = ({ label }: { label: string }) => {
+const Dropdown = ({
+    label,
+    selectedOptions,
+    options,
+    onOptionSelect,
+}: {
+    label: string;
+    selectedOptions: string[];
+    options: CategoryDropdownOption[];
+    onOptionSelect: (label: string) => void;
+}) => {
     const [open, setOpen] = useState<boolean>(false);
     const dropdownWrapperRef = useRef<HTMLDivElement>(null);
 
@@ -37,15 +48,16 @@ const Dropdown = ({ label }: { label: string }) => {
             {open && (
                 <div className="absolute z-50 top-13 left-0 rounded-8 border border-neutral-9 bg-neutral-0 shadow-[0_3px_8px_0_#2E1401] w-65 overflow-hidden">
                     <div>
-                        <DropdownItem withCheckbox>Art (1)</DropdownItem>
-                        <DropdownItem withCheckbox>Art (1)</DropdownItem>
-                        <DropdownItem withCheckbox>Art (1)</DropdownItem>
-                        <DropdownItem withCheckbox>Art (1)</DropdownItem>
-                        <DropdownItem withCheckbox>Art (1)</DropdownItem>
-                        <DropdownItem withCheckbox>Art (1)</DropdownItem>
-                        <DropdownItem withCheckbox>Art (1)</DropdownItem>
-                        <DropdownItem withCheckbox>Art (1)</DropdownItem>
-                        <DropdownItem withCheckbox>Art (1)</DropdownItem>
+                        {options.map((option) => (
+                            <DropdownItem
+                                key={option.id}
+                                withCheckbox
+                                checked={selectedOptions.includes(option.label)}
+                                onClick={() => onOptionSelect(option.label)}
+                            >
+                                {`${option.label} (${option.count})`}
+                            </DropdownItem>
+                        ))}
                     </div>
                 </div>
             )}

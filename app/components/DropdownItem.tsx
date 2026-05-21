@@ -17,11 +17,10 @@ const DropdownItem = ({
     return (
         <div
             className="flex items-center px-200 py-100 gap-100 cursor-pointer hover:bg-neutral-1 w-full"
-            tabIndex={0}
             onClick={onClick}
         >
             {Icon && <Icon />}
-            {withCheckbox && <Checkbox checked={checked} />}
+            {withCheckbox && <Checkbox checked={checked} onChange={() => {}} />}
             <span className="text-preset-5 text-neutral-9">{children}</span>
         </div>
     );

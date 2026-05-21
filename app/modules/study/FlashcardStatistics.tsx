@@ -5,6 +5,8 @@ import BookIcon from "@/app/components/icons/BookIcon";
 import BoxIcon from "@/app/components/icons/BoxIcon";
 import BrainIcon from "@/app/components/icons/BrainIcon";
 import LayersIcon from "@/app/components/icons/LayersIcon";
+import { FlashCard } from "@/app/types";
+import { MASTERED_COUNT } from "@/app/constants";
 
 const FlashcardStatisticsCard = ({
     label,
@@ -34,40 +36,51 @@ const FlashcardStatisticsCard = ({
     </div>
 );
 
-const FlashcardStatistics = () => {
-    const statisticsSections = useMemo(
-        () => [
+const FlashcardStatistics = ({ cards }: { cards: FlashCard[] }) => {
+    const statisticsSections = useMemo(() => {
+        const totalCount = cards.length;
+        const masteredCount = cards.filter(
+            (card) => card.knownCount === MASTERED_COUNT,
+        ).length;
+        const progressCount = cards.filter(
+            (card) => card.knownCount < MASTERED_COUNT && card.knownCount > 0,
+        ).length;
+        const notStartedCount = cards.filter(
+            (card) => card.knownCount === 0,
+        ).length;
+
+        return [
             {
                 id: "total",
                 label: "Total",
-                count: 40,
+                count: totalCount,
                 color: "bg-blue-4",
                 icon: LayersIcon,
             },
             {
                 id: "mastered",
                 label: "Mastered",
-                count: 11,
+                count: masteredCount,
                 icon: BrainIcon,
                 color: "bg-teal-4",
             },
             {
                 id: "progress",
                 label: "In Progress",
-                count: 21,
+                count: progressCount,
                 color: "bg-pink-5",
                 icon: BookIcon,
             },
             {
                 id: "started",
                 label: "Not Started",
-                count: 8,
+                count: notStartedCount,
                 color: "bg-pink-4",
                 icon: BoxIcon,
             },
-        ],
-        [],
-    );
+        ];
+    }, [cards]);
+
     return (
         <section className="grid gap-200 text-neutral-9 py-250 px-200 rounded-16 border-t border-r-[3px] border-b-[3px] border-l border-neutral-900 bg-neutral-0">
             <h2 className="text-preset-2">Study Statistics</h2>

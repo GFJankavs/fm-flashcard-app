@@ -4,13 +4,18 @@ import EditIcon from "@/app/components/icons/EditIcon";
 import TrashIcon from "@/app/components/icons/TrashIcon";
 import ProgressBar from "@/app/components/ProgressBar";
 import { useEffect, useRef, useState } from "react";
-import EditModal from "./EditModal";
-import DeleteModal from "./DeleteModal";
+import { FlashCard } from "@/app/types";
+import { MASTERED_COUNT } from "@/app/constants";
+import MasteredTag from "@/app/components/MasteredTag";
 
-const MenuButton = () => {
+const MenuButton = ({
+    onDelete,
+    onEdit,
+}: {
+    onEdit: () => void;
+    onDelete: () => void;
+}) => {
     const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
-    const [editModalOpen, setEditModalOpen] = useState<boolean>(false);
-    const [deleteModalOpen, setDeleteModalOpen] = useState<boolean>(false);
 
     const wrapperRef = useRef<HTMLDivElement>(null);
 
@@ -47,7 +52,10 @@ const MenuButton = () => {
                         <div className="w-full">
                             <DropdownItem
                                 icon={EditIcon}
-                                onClick={() => setEditModalOpen(true)}
+                                onClick={() => {
+                                    onEdit();
+                                    setDropdownOpen(false);
+                                }}
                             >
                                 Edit
                             </DropdownItem>
@@ -55,7 +63,10 @@ const MenuButton = () => {
                         <div>
                             <DropdownItem
                                 icon={TrashIcon}
-                                onClick={() => setDeleteModalOpen(true)}
+                                onClick={() => {
+                                    onDelete();
+                                    setDropdownOpen(false);
+                                }}
                             >
                                 Delete
                             </DropdownItem>
@@ -63,44 +74,52 @@ const MenuButton = () => {
                     </div>
                 )}
             </div>
-
-            <EditModal
-                isOpen={editModalOpen}
-                onModalClose={() => setEditModalOpen(false)}
-            />
-            <DeleteModal
-                isOpen={deleteModalOpen}
-                onModalClose={() => setDeleteModalOpen(false)}
-            />
         </>
     );
 };
 
-const Flashcard = () => {
+const Flashcard = ({
+    card,
+    onCardDelete,
+    onCardEdit,
+}: {
+    card: FlashCard;
+    onCardEdit: () => void;
+    onCardDelete: () => void;
+}) => {
+    const currentProgress = (card.knownCount / MASTERED_COUNT) * 100;
+    const isMastered = card.knownCount === MASTERED_COUNT;
+
     return (
         <article className="flex flex-col rounded-16 border-t border-l border-r-[3px] border-b-[3px] border-neutral-9 w-full h-[238px]">
             <div className="p-200">
-                <h2 className="text-preset-3">What does HTML stand for?</h2>
+                <h2 className="text-preset-3">{card.question}</h2>
             </div>
             <div
                 id="answer"
-                className="flex flex-col flex-1 p-200 border-y border-neutral-9 text-neutral-9"
+                className="flex flex-col flex-1 overflow-scroll p-200 border-y border-neutral-9 text-neutral-9"
             >
                 <h5 className="text-preset-5 opacity-60">Answer:</h5>
-                <p className="text-preset-5">HyperText Markup Language</p>
+                <p className="text-preset-5">{card.answer}</p>
             </div>
-            <div className="px-200 grid grid-cols-[1fr_1fr_24px] gap-100">
+            <div className="px-200 grid grid-cols-[1fr_1fr_24px] gap-100 h-14">
                 <div className="flex items-center pr-125 py-3.5 border-r border-neutral-9">
                     <span className="text-nowrap text-preset-6 py-75 px-150 rounded-full border border-neutral-9 bg-neutral-0 shadow-[1px_1px_0_0_#2E1401]">
-                        Web Development
+                        {card.category}
                     </span>
                 </div>
                 <div className="flex items-center gap-2 border-r border-neutral-9 w-full max-w-43.5">
-                    <ProgressBar progress={40} />
-                    <span>2/5</span>
+                    {isMastered ? (
+                        <MasteredTag count={card.knownCount} />
+                    ) : (
+                        <>
+                            <ProgressBar progress={currentProgress} />
+                            <span>{`${card.knownCount}/5`}</span>
+                        </>
+                    )}
                 </div>
                 <div className="flex justify-center items-center w-full">
-                    <MenuButton />
+                    <MenuButton onEdit={onCardEdit} onDelete={onCardDelete} />
                 </div>
             </div>
         </article>
