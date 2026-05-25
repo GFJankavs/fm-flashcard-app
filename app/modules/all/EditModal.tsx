@@ -35,6 +35,7 @@ const EditModal = ({
             <form
                 className="grid gap-300 relative rounded-16 border-t border-l border-r-4 border-b-4 border-neutral-9 p-400 bg-neutral-0 w-full max-w-[600px]"
                 onSubmit={handleSubmit(onFormSubmit)}
+                role="form"
             >
                 <span
                     className="absolute top-4 right-4 cursor-pointer"
