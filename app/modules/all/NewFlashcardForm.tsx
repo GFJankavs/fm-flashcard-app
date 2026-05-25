@@ -12,7 +12,12 @@ const NewFlashcardForm = ({
 }: {
   onCardAdd: (data: FlashCard) => void;
 }) => {
-  const { register, handleSubmit, reset } = useForm<FormInputs>();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<FormInputs>();
 
   const onFormSubmit = (data: FormInputs) => {
     const uniqueId = uuidv4();
@@ -25,10 +30,12 @@ const NewFlashcardForm = ({
       knownCount: 0,
     });
 
-        notify("Card created successfully.");
+    notify("Card created successfully.");
 
-        reset();
-    };
+    reset();
+  };
+
+  console.log(errors);
 
   return (
     <section className="p-250 rounded-16 border-t border-l border-r-4 border-b-4 border-neutral-9">
@@ -41,17 +48,26 @@ const NewFlashcardForm = ({
           <Input
             label="Question"
             placeholder="e.g., What is the capital of France?"
-            {...register("question")}
+            error={errors.question?.message}
+            {...register("question", {
+              required: "Question is required.",
+            })}
           />
           <TextArea
             label="Answer"
             placeholder="e.g., Paris"
-            {...register("answer")}
+            error={errors.answer?.message}
+            {...register("answer", {
+              required: "Answer is required.",
+            })}
           />
           <Input
             label="Category"
             placeholder="e.g., Geography"
-            {...register("category")}
+            error={errors.category?.message}
+            {...register("category", {
+              required: "Category is required.",
+            })}
           />
         </div>
         <Button role="button" width="fit">

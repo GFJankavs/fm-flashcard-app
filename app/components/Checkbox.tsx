@@ -14,7 +14,7 @@ const Checkbox: FC<CheckboxProps> = ({ id, label, ...rest }) => (
         id={id}
         {...rest}
       />
-      <span className="absolute text-neutral-9 opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+      <span className="absolute text-neutral-9 opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none">
         <CheckmarkIcon data-testid="checkmark-icon" />
       </span>
     </div>

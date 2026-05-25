@@ -124,6 +124,7 @@ const FlashcardMastery = ({
               prev === "answer" ? "question" : "answer",
             )
           }
+          role="main"
           className={classNames(
             "cursor-pointer relative w-full flex flex-col items-center border-2 border-neutral-9 shadow-[2px_2px_0_0_#2E1401] rounded-16 px-200 py-250 h-90 text-neutral-9",
             {

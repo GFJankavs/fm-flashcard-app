@@ -9,7 +9,8 @@
     "lint": "eslint",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:e2e": "playwright test --ui"
+    "test:e2e": "playwright test --ui",
+    "test:e2e:ci": "playwright test"
   },
   "dependencies": {
     "@testing-library/user-event": "14.6.1",
