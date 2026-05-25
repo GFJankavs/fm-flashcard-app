@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Frontend Mentor - Flashcard app solution
 
-## Getting Started
+This is a solution to the [Flashcard app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/flashcard-app). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-First, run the development server:
+## Table of contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [AI Collaboration](#ai-collaboration)
+- [Author](#author)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Overview
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### The challenge
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Users should be able to:
 
-## Learn More
+#### Flashcard Management
 
-To learn more about Next.js, take a look at the following resources:
+- Create new flashcards with a question, answer, and category
+- Edit existing flashcards to update their details
+- Delete flashcards they no longer need
+- See form validation messages when trying to submit a card without all fields completed
+- View all their flashcards in a grid layout
+- See flashcard details including question, answer, category, and mastery progress
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### Study Mode
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Study flashcards one at a time in Study Mode
+- Click on a flashcard to reveal the answer
+- Mark a flashcard as known by clicking "I Know This" to track mastery progress
+- Navigate between flashcards using Previous and Next buttons
+- See which card they're currently viewing (e.g., "Card 1 of 40")
+- Track mastery progress for each card on a scale of 0 to 5
+- Reset progress on a flashcard to start learning it again
 
-## Deploy on Vercel
+#### Filtering & Organization
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Filter flashcards by selecting one or multiple categories
+- See the number of cards in each category within the filter dropdown
+- Hide mastered cards to focus on cards that still need practice
+- Shuffle flashcards to randomize the study order
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+#### Statistics & Progress
+
+- View study statistics showing total cards, mastered, in progress, and not started counts
+
+#### UI & Navigation
+
+- Toggle between Study Mode and All Cards views
+- Load more flashcards when viewing the full card list with more than 12 cards
+- See a toast message when a card is created, updated, or deleted
+- View the optimal layout for the interface depending on their device's screen size
+- See hover and focus states for all interactive elements on the page
+- Navigate the entire app using only their keyboard
+
+### Screenshot
+
+![Screenshot 1](./screenshot_1.png_)
+![Screenshot 2](./screenshot_2.png)
+
+### Links
+
+- Solution URL: [GitHub](https://github.com/GFJankavs/fm-flashcard-app)
+- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+
+## My process
+
+### Built with
+
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- CSS Grid
+- Mobile-first workflow
+- [Next.js](https://nextjs.org/) - React framework
+- [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework
+- [Jest](https://jestjs.io/) - For unit tests (JavaScript Testing Framework)
+- [Playwright](https://playwright.dev/) - E2E testing library
+
+### What I learned
+
+I relearned how to write unit and e2e tests using Jest and Playwright, which I had not done in a while.
+
+### AI Collaboration
+
+Describe how you used AI tools (if any) during this project. This helps demonstrate your ability to work effectively with AI assistants.
+
+- What tools did you use (e.g., ChatGPT, Claude, GitHub Copilot)?
+  - Claude Code
+  - GitHub Copilot
+- How did you use them (e.g., debugging, generating boilerplate, brainstorming solutions)?
+  - Writing unit and e2e tests
+  - Minor bug fixing
+
+## Author
+
+- Frontend Mentor - [@GFJankavs](https://www.frontendmentor.io/profile/GFJankavs)
+- Twitter - [@GFJankavs](https://www.twitter.com/GFJankavs)
