@@ -3,6 +3,7 @@ import PlusIcon from "@/app/components/icons/PlusIcon";
 import Input from "@/app/components/Input";
 import TextArea from "@/app/components/TextArea";
 import { FlashCard, FormInputs } from "@/app/types";
+import { notify } from "@/app/utils";
 import { useForm } from "react-hook-form";
 import { v4 as uuidv4 } from "uuid";
 
@@ -23,6 +24,8 @@ const NewFlashcardForm = ({
             question: data.question,
             knownCount: 0,
         });
+
+        notify("Card created successfully.");
 
         reset();
     };

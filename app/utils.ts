@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+import ToastNotification from "./components/ToastNotification";
 import { CategoryDropdownOption, FlashCard } from "./types";
 
 export const shuffleArray = (array: Array<FlashCard>) => {
@@ -28,3 +30,12 @@ export const getCategoryOptions = (
         selected: false,
     }));
 };
+
+export const notify = (content: string) =>
+    toast(ToastNotification, {
+        data: { content },
+        className: "bg-transparent! shadow-none! p-0! min-h-0! rounded-none!",
+        ariaLabel: content,
+        closeButton: false,
+        hideProgressBar: true,
+    });

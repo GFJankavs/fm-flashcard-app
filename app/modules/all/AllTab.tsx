@@ -5,12 +5,13 @@ import ShuffleIcon from "@/app/components/icons/ShuffleIcon";
 import Flashcard from "./Flashcard";
 import NewFlashcardForm from "./NewFlashcardForm";
 import useFlashcardStore from "@/app/store/flashcard";
-import { getCategoryOptions } from "@/app/utils";
+import { getCategoryOptions, notify } from "@/app/utils";
 import { useMemo, useState } from "react";
 import { MASTERED_COUNT } from "@/app/constants";
 import { FlashCard } from "@/app/types";
 import EditModal from "./EditModal";
 import DeleteModal from "./DeleteModal";
+import { ToastContainer } from "react-toastify";
 
 const AllTab = () => {
     const { cards, shuffleCards, removeCard, editCard, addCard } =
@@ -101,6 +102,7 @@ const AllTab = () => {
                 </div>
             </div>
 
+            <ToastContainer />
             {cardToEdit && (
                 <EditModal
                     onCardEdit={(data) => {
@@ -108,6 +110,7 @@ const AllTab = () => {
                         editCard(cardToEdit.id, data);
                         setEditModalOpen(false);
                         setCardToEdit(null);
+                        notify("Card updated successfully.");
                     }}
                     card={cardToEdit}
                     isOpen={editModalOpen}
@@ -124,6 +127,7 @@ const AllTab = () => {
                     removeCard(cardToEdit.id);
                     setDeleteModalOpen(false);
                     setCardToEdit(null);
+                    notify("Card deleted.");
                 }}
                 isOpen={deleteModalOpen}
                 onModalClose={() => {
