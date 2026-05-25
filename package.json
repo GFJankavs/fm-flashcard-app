@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "test:e2e": "playwright test --ui"
   },
   "dependencies": {
     "@testing-library/user-event": "14.6.1",
@@ -23,6 +24,7 @@
     "zustand": "5.0.13"
   },
   "devDependencies": {
+    "@playwright/test": "^1.60.0",
     "@tailwindcss/postcss": "4",
     "@testing-library/dom": "10.4.1",
     "@testing-library/jest-dom": "6.9.1",
