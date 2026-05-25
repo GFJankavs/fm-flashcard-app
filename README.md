@@ -61,13 +61,13 @@ Users should be able to:
 
 ### Screenshot
 
-![Screenshot 1](./screenshot_1.png_)
+![Screenshot 1](./screenshot_1.png)
 ![Screenshot 2](./screenshot_2.png)
 
 ### Links
 
 - Solution URL: [GitHub](https://github.com/GFJankavs/fm-flashcard-app)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [Website](https://qhhpcss8v65vyl1ycinazzxb.gfjankavs.lv)
 
 ## My process
 
